@@ -3,8 +3,14 @@ from datetime import datetime
 from home.models import Contact
 from django.contrib import messages
 # Create your views here.
+def base(request):
+    current_year = datetime.now().year
+    return render(request, 'base.html', {'current_year': current_year})
+
+
 def index(request):
     context = {
+        
         # "variable1": "this is great",
         # "variable2": "this is great"
     }
