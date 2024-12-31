@@ -1,4 +1,42 @@
 {% extends 'base.html'%}
-{%block title %} contact {% endblock title %}
 
-{% block body %}  {% endblock body %}  
+{%block title %} login {% endblock title %}
+
+{% block body %} 
+<div class=" row justify-content-center">
+    <div class="col-sm-6">
+         <class="text-muted"><h1>Login</h1>
+
+         {% if form.non_field_errors %}
+         <small class="text-danger">
+            {{ form.non_field_errors.as_ul }}
+         </small>
+         {% endif %}
+
+        <form method="POST" action="{% url 'login' %}">
+
+            {% csrf_token%}
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label}}">Username</label>
+                <input type="text" name="{{ form.username.name }}" class="form-control" value="{{ form.username.value}}"/>
+                <span class="text-danger">{{ form.username.errors }}</span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="{{ form.password.id_for_label}}">Password</label>
+                <input type="password" name="{{ form.password.name }}" class="form-control" value="{{ form.password.value}}"/>
+                <span class="text-danger">{{ form.password.errors }}</span>
+            </div>
+
+            <button type="submit" class="btn btn-dark">login</button>
+
+            <a href="{% url 'register' %}" class="btn btn-default"><h5>Create a New Account</h5></a>
+
+
+            
+        </form>
+    </div>
+</div>
+{% endblock body %}  
