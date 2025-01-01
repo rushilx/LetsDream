@@ -3,18 +3,23 @@
 {% block title %} Login {% endblock title %}
 
 {% block body %}
-<div class="container-fluid">
+{% load static %}
+<div class="container-fluid" style="background-image: url('{% static 'image/cc1.jpg' %}'); background-size: cover; background-position: center; min-height: 100vh;">
     <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
         <div class="col-md-6 col-lg-6">
             <div class="card shadow-lg">
                 <div class="row g-0">
                     <div class="col-md-6">
                         <!-- Image Section -->
-                        <img src="your-image.jpg" alt="Login Image" class="img-fluid h-100" style="object-fit: cover;">
+                       
+
+                        <img src="{% static 'image/avtar1.jpg' %}" class="img-fluid h-100" style="object-fit: cover;">
                     </div>
                     <div class="col-md-6">
                         <!-- Login Form Section -->
                         <div class="card-body">
+                            
+                            
                             {% if form.non_field_errors %}
                             <div class="alert alert-danger">
                                 <ul>
