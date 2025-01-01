@@ -1,42 +1,66 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 
-{%block title %} login {% endblock title %}
+{% block title %} Login {% endblock title %}
 
-{% block body %} 
-<div class=" row justify-content-center">
-    <div class="col-sm-6">
-         <class="text-muted"><h1>Login</h1>
-
-         {% if form.non_field_errors %}
-         <small class="text-danger">
-            {{ form.non_field_errors.as_ul }}
-         </small>
-         {% endif %}
-
-        <form method="POST" action="{% url 'login' %}">
-
-            {% csrf_token%}
-            <div class="form-group">
-                <label for="{{ form.username.id_for_label}}">Username</label>
-                <input type="text" name="{{ form.username.name }}" class="form-control" value="{{ form.username.value}}"/>
-                <span class="text-danger">{{ form.username.errors }}</span>
+{% block body %}
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="col-md-6 col-lg-6">
+            <div class="card shadow-lg">
+                <div class="row g-0">
+                    <div class="col-md-6">
+                        <!-- Image Section -->
+                        <img src="your-image.jpg" alt="Login Image" class="img-fluid h-100" style="object-fit: cover;">
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Login Form Section -->
+                        <div class="card-body">
+                            {% if form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                <ul>
+                                    {{ form.non_field_errors.as_ul }}
+                                </ul>
+                            </div>
+                            {% endif %}
+                            <form method="POST" action="{% url 'login' %}">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
+                                    <input 
+                                        type="text" 
+                                        name="{{ form.username.name }}" 
+                                        class="form-control" 
+                                        value="{{ form.username.value }}" 
+                                        placeholder="Enter your username"
+                                        required
+                                    />
+                                    <span class="text-danger">{{ form.username.errors }}</span>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="{{ form.password.id_for_label }}" class="form-label">Password</label>
+                                    <input 
+                                        type="password" 
+                                        name="{{ form.password.name }}" 
+                                        class="form-control" 
+                                        placeholder="Enter your password"
+                                        required
+                                    />
+                                    <span class="text-danger">{{ form.password.errors }}</span>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn" style="background-color: #212529; color: white;">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer text-center">
+                            <p class="text-muted mb-0">
+                                New here? <a href="{% url 'register' %}" class="text-primary">Create an account</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-
-
-            <div class="form-group">
-                <label for="{{ form.password.id_for_label}}">Password</label>
-                <input type="password" name="{{ form.password.name }}" class="form-control" value="{{ form.password.value}}"/>
-                <span class="text-danger">{{ form.password.errors }}</span>
-            </div>
-
-            <button type="submit" class="btn btn-dark">login</button>
-
-            <a href="{% url 'register' %}" class="btn btn-default"><h5>Create a New Account</h5></a>
-
-
-            
-        </form>
+        </div>
     </div>
 </div>
-{% endblock body %}  
+{% endblock body %}
