@@ -34,6 +34,11 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'widget_tweaks',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -41,10 +46,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home'
 ]
+SITE_ID = 1
 
 AUTHENTICATION_BACKENDS=[
+    'allauth.account.auth_backends.AuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend'
 ]
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '<1074900841223-8p1kkufpa10ranpnd7sf9fr421qnc9f1.apps.googleusercontent.com>'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '<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>'
+
+LOGIN_REDIRECT_URL = 'index' 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -53,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware'
 ]
 
 ROOT_URLCONF = 'hello.urls'

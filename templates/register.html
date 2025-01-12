@@ -4,6 +4,8 @@
 
 {% block body %}
 {% load static %}
+{% load socialaccount %}
+
 <div class="container-fluid" style="background-image: url('{% static 'image/cc1.jpg' %}'); background-size: cover; background-position: center; min-height: 100vh;">
     <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
         <div class="col-md-6 col-lg-6">
@@ -11,8 +13,7 @@
                 <div class="row g-0">
                     <div class="col-md-6">
                         <!-- Image Section -->
-                        {% load static %}
-                        <img src="{% static 'image/boy1.jpg' %}"  class="img-fluid h-100" style="object-fit: cover;">
+                        <img src="{% static 'image/boy1.jpg' %}" class="img-fluid h-100" style="object-fit: cover;">
                     </div>
                     <div class="col-md-6">
                         <!-- Register Form Section -->
@@ -64,6 +65,13 @@
                                     <button type="submit" class="btn" style="background-color: #212529; color: white;">Register</button>
                                 </div>
                             </form>
+
+                            <!-- Google Sign-In Button -->
+                            <div class="d-grid mt-3">
+                                <a href="{% provider_login_url 'google' %}" class="btn btn-danger">
+                                    <i class="fab fa-google"></i> Sign in with Google
+                                </a>
+                            </div>
                         </div>
                         <div class="card-footer text-center">
                             <p class="text-muted mb-0">
@@ -77,3 +85,4 @@
     </div>
 </div>
 {% endblock body %}
+

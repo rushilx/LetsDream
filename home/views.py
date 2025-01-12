@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from .middlewares import auth, guest
+from .forms import BookingForm
 # Create your views here.
 def base(request):
     current_year = datetime.now().year
@@ -14,6 +15,10 @@ def base(request):
 def index(request):
     messages.success(request, "How Are You Doing Friends")
     return render(request, 'index.html')
+
+def index2(request):
+    messages.success(request, "How Are You Doing Friends")
+    return render(request, 'index2.html')
 
 def about(request):
     return render(request, 'about.html')
@@ -69,3 +74,17 @@ def login_view(request):
 def logout_view(request):
    logout(request)
    return redirect('login')
+
+
+def booking_view(request):
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save the booking data to the database
+            return redirect('booking_success')  # Redirect to a success page
+    else:
+        form = BookingForm()
+    return render(request, 'booking.html', {'form': form})
+
+def booking_success(request):
+    return render(request, 'booking_success.html')
