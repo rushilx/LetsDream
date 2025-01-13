@@ -52,8 +52,8 @@ AUTHENTICATION_BACKENDS=[
     'allauth.account.auth_backends.AuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend'
 ]
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '<1074900841223-8p1kkufpa10ranpnd7sf9fr421qnc9f1.apps.googleusercontent.com>'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '<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>'
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '<1074900841223-8p1kkufpa10ranpnd7sf9fr421qnc9f1.apps.googleusercontent.com>'
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '<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>'
 
 LOGIN_REDIRECT_URL = 'index' 
 MIDDLEWARE = [
