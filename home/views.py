@@ -6,19 +6,17 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from .middlewares import auth, guest
 from .forms import BookingForm
+from django.core.mail import send_mail
 # Create your views here.
 def base(request):
     current_year = datetime.now().year
     return render(request, 'base.html', {'current_year': current_year})
 
+def index2(request):
+    return render(request, 'index2.html')
 @auth
 def index(request):
-    messages.success(request, "How Are You Doing Friends")
     return render(request, 'index.html')
-
-def index2(request):
-    messages.success(request, "How Are You Doing Friends")
-    return render(request, 'index2.html')
 
 def about(request):
     return render(request, 'about.html')
@@ -39,14 +37,14 @@ def contact(request):
     # return HttpResponse("this is contact page")
 
     #  login page models date 31/12/2024 initiated
-@guest
+# @guest
 def register_view(request):
    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user=form.save()
             login(request,user)
-            return redirect('index')
+            return redirect('index2')
         else:
             # If the form is invalid, render the form again with error messages
             return render(request, 'register.html', {'form': form})
@@ -80,7 +78,20 @@ def booking_view(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-            form.save()  # Save the booking data to the database
+            # Now the form is valid, access the cleaned data
+            location = form.cleaned_data['location']
+            date = form.cleaned_data['date']
+            car = form.cleaned_data['car']
+
+            # email content
+            subject = 'New Car Booking Request'
+            message = f"New Booking Details:\n\nLocation: {location}\nDate: {date}\nCar: {car}"
+            from_email = 'dannydroves@gmail.com'  # You can use the same as EMAIL_HOST_USER
+            recipient_list = ['dannydroves@gmail.com']  # Y
+            form.save() 
+
+            send_mail(subject, message, from_email, recipient_list)
+             # Save the booking data to the database
             return redirect('booking_success')  # Redirect to a success page
     else:
         form = BookingForm()
