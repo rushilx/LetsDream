@@ -15,6 +15,9 @@ urlpatterns = [
     path('logout/', views.logout_view, name= 'logout'),
     path('booking/', views.booking_view, name='booking'),
     path('booking/success/', views.booking_success, name='booking_success'), 
+    path('faq/', views.faq_view, name='faq'),
+    path('submit-ticket/', views.submit_ticket, name='submit_ticket'),
+    path('my-tickets/', views.ticket_list, name='ticket_list'),
     path('accounts/', include('allauth.urls'))
 ]
 

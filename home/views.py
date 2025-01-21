@@ -7,6 +7,9 @@ from django.contrib.auth import login, logout
 from .middlewares import auth, guest
 from .forms import BookingForm
 from django.core.mail import send_mail
+from .models import FAQ
+from .forms import TicketForm
+from .models import Ticket 
 # Create your views here.
 def base(request):
     current_year = datetime.now().year
@@ -99,3 +102,23 @@ def booking_view(request):
 
 def booking_success(request):
     return render(request, 'booking_success.html')
+
+def faq_view(request):
+    faqs = FAQ.objects.all()
+    return render(request, 'faq.html', {'faqs': faqs})
+
+def submit_ticket(request):
+    if request.method == 'POST':
+        form = TicketForm(request.POST)
+        if form.is_valid():
+            ticket = form.save(commit=False)
+            ticket.user = request.user  # Associate the ticket with the logged-in user
+            ticket.save()
+            return redirect('ticket_submitted')
+    else:
+        form = TicketForm()
+    return render(request, 'submit_ticket.html', {'form': form})
+
+def ticket_list(request):
+    tickets = Ticket.objects.filter(user=request.user)
+    return render(request, 'support/ticket_list.html', {'tickets': tickets})

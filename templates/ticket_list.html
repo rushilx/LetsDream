@@ -1,0 +1,7 @@
+<h1>Your Tickets</h1>
+{% for ticket in tickets %}
+    <div>
+        <h2>{{ ticket.subject }}</h2>
+        <p>Status: {{ ticket.get_status_display }}</p>
+    </div>
+{% endfor %}
