@@ -1,0 +1,166 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental Admin</title>
+<style>body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar h2 {
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #e9ecef;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.add-car-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-car-btn:hover {
+    background-color: #0056b3;
+}
+
+.car-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.car-card {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.car-card img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.car-card h3 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.car-card p {
+    margin: 5px 0;
+}
+
+.price {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+</style></head>
+<body>
+    <div class="sidebar">
+        <h2>CarRental Admin</h2>
+        <ul>
+            <li><a href="#">Cars</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Bookings</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <h1>Car Management</h1>
+            <button class="add-car-btn">Add New Car</button>
+        </div>
+        <div class="car-list">
+            <div class="car-card">
+                <img src="tesla.jpg" alt="Tesla Model S">
+                <h3>Tesla</h3>
+                <p>Model S</p>
+                <p>Year: 2023</p>
+                <p class="price">$150/day</p>
+                <button class="delete-btn">Delete</button>
+            </div>
+            <div class="car-card">
+                <img src="bmw.jpg" alt="BMW M5">
+                <h3>BMW</h3>
+                <p>M5</p>
+                <p>Year: 2023</p>
+                <p class="price">$200/day</p>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

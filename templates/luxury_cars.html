@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+
+{% block title %} luxry cars{% endblock title %}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(to right, #5296e0, #0c1723);
+            color: white;
+            padding: 30px 20px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 48px;
+            margin: 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .header p {
+            font-size: 20px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 26px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            top: 10px;
+            left: 10px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content h3 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .content .price {
+            font-size: 24px;
+            color: #007bff;
+            margin: 10px 0;
+        }
+
+        .details {
+            font-size: 14px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .details span {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Luxury Cars Heading -->
+    <div class="header">
+        <h1>Luxury Cars</h1>
+        <p>Experience the thrill of driving top-class vehicles at affordable prices</p>
+    </div>
+    <div class="container">
+        <!-- fortuner -->
+        <div class="card">
+            <img src="static/image/fortuner.jpg" alt="Tesla Model 3">
+            <div class="badge">VIP</div>
+            <div class="content">
+                <h3>Fortuner Top Model</h3>
+                <div class="price">Rs 10,0000/day</div>
+                <div class="details">
+                    <span>7 Seats</span>
+                    <span>Automatic</span>
+                    <span>4x4</span>
+                    <span>Unlimited</span>
+                </div>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+        </div>
+
+        <!-- x7 Card -->
+        <div class="card">
+            <img src="static/image/x7.jpg" alt="BMW 3 Series">
+            <div class="badge">Luxury</div>
+            <div class="content">
+                <h3>X7 Series</h3>
+                <div class="price">Rs 4000/day</div>
+                <div class="details">
+                    <span>6 Seats</span>
+                    <span>Automatic</span>
+                    <span>Gasoline</span>
+                    <span>250 mi/day</span>
+                </div>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+        </div>
+
+        <!-- mercedes benz Card -->
+        <div class="card">
+            <img src="static/image/benz.jpg" alt="Range Rover Sport">
+            <div class="badge">Mercedes</div>
+            <div class="content">
+                <h3>Range Rover Sport</h3>
+                <div class="price">Rs 2000/day</div>
+                <div class="details">
+                    <span>4 Seats</span>
+                    <span>Automatic</span>
+                    <span>Diesel</span>
+                    <span>200 mi/day</span>
+                </div>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+        </div>
+        <!-- scoda Card -->
+        <div class="card">
+            <img src="static/image/scoda.jpg" alt="Range Rover Sport">
+            <div class="badge">Scoda</div>
+            <div class="content">
+                <h3>Scoda Sedan</h3>
+                <div class="price">Rs 2000/day</div>
+                <div class="details">
+                    <span>4 Seats</span>
+                    <span>Automatic</span>
+                    <span>Diesel</span>
+                    <span>200 mi/day</span>
+                </div>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+        </div>
+        <!-- scorpio Card -->
+        <div class="card">
+            <img src="static/image/scorpio.jpg" alt="Range Rover Sport">
+            <div class="badge">Scorpio</div>
+            <div class="content">
+                <h3>Scorpio S11</h3>
+                <div class="price">Rs 5000/day</div>
+                <div class="details">
+                    <span>6 Seats</span>
+                    <span>Automatic</span>
+                    <span>Diesel</span>
+                    <span>200 mi/day</span>
+                </div>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+        </div>
+        <!-- xuv700 Card -->
+        <div class="card">
+            <img src="static/image/xuv700.jpg" alt="Range Rover Sport">
+            <div class="badge">XUV 700</div>
+            <div class="content">
+                <h3>XUV 700</h3>
+                <div class="price">Rs 6000/day</div>
+                <div class="details">
+                    <span>6 Seats</span>
+                    <span>Automatic</span>
+                    <span>Diesel</span>
+                    <span>200 mi/day</span>
+                </div>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+        </div>
+        <!-- Range Rover Card -->
+        <div class="card">
+            <img src="static/image/audy.jpg" alt="Range Rover Sport">
+            <div class="badge">SUV</div>
+            <div class="content">
+                <h3>Audy</h3>
+                <div class="price">Rs 10,000/day</div>
+                <div class="details">
+                    <span>4 Seats</span>
+                    <span>Automatic</span>
+                    <span>Diesel</span>
+                    <span>200 mi/day</span>
+                </div>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+        </div>
+
+
+        <!-- Mercedes Card -->
+        <div class="card">
+            <img src="static/image/x7.jpg" alt="Mercedes-Benz C-Class">
+            <div class="badge">Luxury</div>
+            <div class="content">
+                <h3>Mercedes-Benz C-Class</h3>
+                <div class="price">Rs 3000/day</div>
+                <div class="details">
+                    <span>5 Seats</span>
+                    <span>Automatic</span>
+                    <span>Gasoline</span>
+                    <span>300 mi/day</span>
+                </div>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock body %}

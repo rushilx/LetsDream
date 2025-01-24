@@ -1,0 +1,9 @@
+Fonts used in this design:
+
+Font: Racing Sans One
+Author: Impallari Type
+Url: https://fonts.google.com/specimen/Racing+Sans+One
+
+Font: Montserrat
+Author: Julieta Ulanovsky,Sol Matas,Juan Pablo del Peral,Jacques Le Bailly
+Url: https://fonts.google.com/specimen/Montserrat

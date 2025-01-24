@@ -3,10 +3,14 @@ from django.urls import path, include
 from home import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path("index", views.index, name= 'index'),
-    path("index2", views.index2, name= 'index2'),
+    path('profile/', views.profile, name='profile'),
+    path('password-change/', auth_views.PasswordChangeView.as_view(template_name='password_change.html'), name='password_change'),
+    path('password-change-done/', auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html'), name='password_change_done'),
+    path("", views.index2, name= 'index2'),
     path("about", views.about, name= 'about'),
     path("services", views.services, name= 'services'),
     path("contact", views.contact, name= 'contact'),
@@ -18,7 +22,11 @@ urlpatterns = [
     path('faq/', views.faq_view, name='faq'),
     path('submit-ticket/', views.submit_ticket, name='submit_ticket'),
     path('my-tickets/', views.ticket_list, name='ticket_list'),
-    path('accounts/', include('allauth.urls'))
+    path("self_drive.html", views.self_drive_cars, name= 'self_drive'),
+    path("luxury_cars.html", views.luxury_cars, name= 'luxury_cars'),
+    path("admin.html", views.admin_page, name= 'admin_page'),
+    path('accounts/', include('allauth.urls')),
+
 ]
 
 

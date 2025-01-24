@@ -10,10 +10,20 @@ from django.core.mail import send_mail
 from .models import FAQ
 from .forms import TicketForm
 from .models import Ticket 
+
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 def base(request):
     current_year = datetime.now().year
     return render(request, 'base.html', {'current_year': current_year})
+
+# profile section
+
+@login_required
+def profile(request):
+    user = request.user  # Fetch the currently logged-in user
+    return render(request, 'profile.html', {'user': user})
 
 def index2(request):
     return render(request, 'index2.html')
@@ -122,3 +132,13 @@ def submit_ticket(request):
 def ticket_list(request):
     tickets = Ticket.objects.filter(user=request.user)
     return render(request, 'support/ticket_list.html', {'tickets': tickets})
+
+def self_drive_cars(request):
+    return render(request, 'self_drive.html')
+
+def luxury_cars(request):
+    return render(request, 'luxury_cars.html')
+
+# admin page
+def admin_page(request):
+    return render(request, 'admin.html')
