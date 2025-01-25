@@ -62,3 +62,18 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+#  admin dashboard
+
+
+class Car(models.Model):
+    name = models.CharField(max_length=100)  # Car name
+    description = models.TextField()  # Car description
+    price_per_day = models.DecimalField(max_digits=10, decimal_places=2)  # Rental price per day
+    availability = models.BooleanField(default=True)  # Car availability
+    image = models.ImageField(upload_to='car_images/', blank=True, null=True)  # Car image
+    features = models.CharField(max_length=255, blank=True)  # Car features (e.g., "GPS, Automatic")
+
+    def __str__(self):
+        return self.name

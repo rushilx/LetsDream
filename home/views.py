@@ -13,6 +13,10 @@ from .models import Ticket
 
 from django.contrib.auth.decorators import login_required
 
+from django.shortcuts import get_object_or_404
+from .models import Car
+from .forms import CarForm
+
 # Create your views here.
 def base(request):
     current_year = datetime.now().year
@@ -139,6 +143,41 @@ def self_drive_cars(request):
 def luxury_cars(request):
     return render(request, 'luxury_cars.html')
 
-# admin page
-def admin_page(request):
-    return render(request, 'admin.html')
+
+# views for adding delete car
+
+# View to list all cars
+def car_list(request):
+    cars = Car.objects.all()
+    return render(request, 'dashboard/car_list.html', {'cars': cars})
+
+# View to add a new car
+def add_car(request):
+    if request.method == 'POST':
+        form = CarForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('car_list')
+    else:
+        form = CarForm()
+    return render(request, 'dashboard/car_form.html', {'form': form})
+
+# View to edit car details
+def edit_car(request, pk):
+    car = get_object_or_404(Car, pk=pk)
+    if request.method == 'POST':
+        form = CarForm(request.POST, request.FILES, instance=car)
+        if form.is_valid():
+            form.save()
+            return redirect('car_list')
+    else:
+        form = CarForm(instance=car)
+    return render(request, 'dashboard/car_form.html', {'form': form})
+
+# View to delete a car
+def delete_car(request, pk):
+    car = get_object_or_404(Car, pk=pk)
+    if request.method == 'POST':
+        car.delete()
+        return redirect('car_list')
+    return render(request, 'dashboard/car_confirm_delete.html', {'car': car})

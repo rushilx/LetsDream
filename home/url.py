@@ -5,8 +5,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
+
 urlpatterns = [
-    path("index", views.index, name= 'index'),
+    path("index/", views.index, name= 'index'),
     path('profile/', views.profile, name='profile'),
     path('password-change/', auth_views.PasswordChangeView.as_view(template_name='password_change.html'), name='password_change'),
     path('password-change-done/', auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html'), name='password_change_done'),
@@ -24,7 +25,10 @@ urlpatterns = [
     path('my-tickets/', views.ticket_list, name='ticket_list'),
     path("self_drive.html", views.self_drive_cars, name= 'self_drive'),
     path("luxury_cars.html", views.luxury_cars, name= 'luxury_cars'),
-    path("admin.html", views.admin_page, name= 'admin_page'),
+    path('dashboard/', views.car_list, name='car_list'),
+    path('dashboard/add/', views.add_car, name='add_car'),
+    path('dashboard/edit/<int:pk>/', views.edit_car, name='edit_car'),
+    path('dashboard/delete/<int:pk>/', views.delete_car, name='delete_car'),
     path('accounts/', include('allauth.urls')),
 
 ]
