@@ -371,7 +371,7 @@ main {
 
     <div class="navbar">
       <div class="logo">
-          <img src="static/image/sport-car.png" alt="Logo">
+          <img src="{% static '/image/sport-car.png' %}" alt="Logo">
           <span>Let's Dream</span>
       </div>
       <div class="menu">
@@ -392,8 +392,8 @@ main {
           <div class="dropdown">
               <a href="#" class="dropdown-toggle">Our Services</a>
               <div class="dropdown-content">
-                  <a href="self_drive.html">Self-Drive Car Rentals</a>
-                  <a href="luxury_cars.html">Luxury Car Rentals</a>
+                  <a href="/self_drive.html">Self-Drive Car Rentals</a>
+                  <a href="/luxury_cars.html">Luxury Car Rentals</a>
               </div>
           </div>
       </div>
@@ -402,7 +402,7 @@ main {
       <div class="icons">
           <!-- Search Dropdown -->
           <div class="dropdown search-dropdown">
-              <img src="static/image/search.png" alt="Search Icon" class="search-toggle">
+              <img src="{% static '/image/search.png '%}" alt="Search Icon" class="search-toggle">
               <div class="dropdown-content search-content">
                   <input type="text" placeholder="Search..." />
                   <button>Search</button>
@@ -411,7 +411,7 @@ main {
   
           <!-- Profile Dropdown -->
           <div class="dropdown profile-dropdown">
-              <img src="static/image/profile.png" alt="User Icon" class="profile-toggle">
+              <img src="{% static '/image/profile.png' %}" alt="User Icon" class="profile-toggle">
               <div class="dropdown-content profile-content">
                   <a href="/profile">View Profile</a>
                   <a href="/settings">Settings</a>
