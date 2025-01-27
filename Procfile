@@ -1,1 +1,1 @@
-web: gunicorn LetsDream.wsgi
+web: gunicorn django-website-rv.wsgi
